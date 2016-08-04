@@ -1,5 +1,6 @@
 if !exists('g:parinfer_mode')
   let g:parinfer_mode = "indent"
+  let g:indent_on_bufenter = 0
 endif
 
 if !exists('g:parinfer_preview_cursor_scope')
@@ -12,7 +13,7 @@ catch
 endtry
 
 function! s:indentparen()
-  if has('nvim') && g:parinfer_mode != "off"
+  if has('nvim') && g:parinfer_mode != "off" && g:indent_on_bufenter
     try
       silent undojoin
     catch
